@@ -47,11 +47,6 @@ function sumNumbers(array) {
 
 const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
-function Exception(message) {
-  this.message = message;
-  this.name = "Error";
-}
-
 function sum(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
@@ -68,8 +63,7 @@ function sum(array) {
         sum += array[i];
         break;
       case "object":
-        return new Exception("invalid object");
-        break;
+        throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sum;
