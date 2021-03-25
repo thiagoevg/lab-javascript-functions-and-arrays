@@ -199,6 +199,52 @@ function howManyTimes(array, word) {
 }
 
 // Iteration #8: Bonus
+const list = [
+  [1, 2, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 4, 3, 4, 5],
+];
+
+function greatestProduct(list) {
+  const size = list.length;
+  const block = 4;
+
+  let biggest = 0;
+  let sum = 1;
+
+  // horizontal
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j <= size - block; j++) {
+      for (let k = 0; k < block; k++) {
+        sum *= list[i][j + k];
+      }
+      if (sum > biggest) {
+        biggest = sum;
+      }
+      sum = 1;
+    }
+  }
+
+  // vertical
+
+  for (let j = 0; j < size; j++) {
+    for (let i = 0; i <= size - block; i++) {
+      for (let k = 0; k < block; k++) {
+        sum *= list[i + k][j];
+      }
+      if (sum > biggest) {
+        biggest = sum;
+      }
+      sum = 1;
+    }
+  }
+
+  return biggest;
+}
+
+// console.log(biggest)
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
