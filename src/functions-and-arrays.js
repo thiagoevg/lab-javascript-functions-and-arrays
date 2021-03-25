@@ -155,13 +155,16 @@ const wordsFind = [
 ];
 
 function doesWordExist(array, word) {
+  let found = false;
   if (array.length === 0) {
     return null;
-  } else if (array.indexOf(word) === -1) {
-    return false;
-  } else {
-    return true;
   }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      found = true;
+    }
+  }
+  return found;
 }
 
 // Iteration #7: Count repetition
